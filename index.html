@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VR Doodle Defence - Parkour Playground</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #0b0e14;
+        color: #f5f5f5;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      #overlay {
+        position: absolute;
+        inset: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 340px;
+        pointer-events: auto;
+        background: rgba(10, 12, 18, 0.78);
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        z-index: 2;
+      }
+
+      h1 {
+        font-size: 20px;
+        margin: 0 0 6px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.4;
+        color: #cbd2ff;
+      }
+
+      .slider-group {
+        display: grid;
+        gap: 6px;
+      }
+
+      label {
+        font-size: 13px;
+        color: #e4e7ff;
+      }
+
+      input[type="range"] {
+        width: 100%;
+      }
+
+      .value {
+        font-weight: 600;
+        color: #8ef6ff;
+      }
+
+      #hint {
+        font-size: 12px;
+        color: #9aa2d1;
+      }
+
+      #vr-button {
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="overlay">
+      <h1>VR Parkour Playground</h1>
+      <p>
+        Use your controllers like Gorilla Tag: squeeze trigger on a surface, then pull to propel
+        yourself. Release to fling. Practice on the floating shapes.
+      </p>
+      <div class="slider-group">
+        <label for="gravity">Gravity: <span class="value" id="gravityValue"></span></label>
+        <input id="gravity" type="range" min="-30" max="-1" value="-9.8" step="0.1" />
+      </div>
+      <div class="slider-group">
+        <label for="friction">Friction: <span class="value" id="frictionValue"></span></label>
+        <input id="friction" type="range" min="0" max="0.2" value="0.04" step="0.005" />
+      </div>
+      <div id="hint">
+        Works on Meta Quest in-browser. Make sure to allow WebXR and enter VR.
+      </div>
+    </div>
+    <div id="vr-button"></div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
